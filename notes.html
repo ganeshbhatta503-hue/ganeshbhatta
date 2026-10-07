@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Notes | Ganesh Bhatta</title>
+
+    <meta name="description"
+          content="Computer Engineering study notes, PDF resources, practical materials and learning resources by Ganesh Bhatta.">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =====================================================
+           NOTES PAGE
+        ===================================================== */
+
+        .notes-page {
+            background: var(--bg-main);
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           PAGE HERO
+        ===================================================== */
+
+        .notes-hero {
+            padding: 90px 0 70px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(24, 200, 255, 0.07),
+                    transparent 35%
+                );
+
+            border-bottom:
+                1px solid
+                var(--border);
+        }
+
+
+        .notes-hero-content {
+            max-width: 750px;
+        }
+
+
+        .notes-label {
+            display: inline-block;
+
+            color: var(--accent);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.8px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .notes-hero h1 {
+            font-size: clamp(42px, 5vw, 60px);
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .notes-hero h1 span {
+            color: var(--accent);
+        }
+
+
+        .notes-hero p {
+            max-width: 650px;
+
+            color: var(--text-light);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           NOTES CONTENT
+        ===================================================== */
+
+        .notes-content {
+            padding: 70px 0 100px;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .notes-toolbar {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .search-box {
+            position: relative;
+
+            width: 100%;
+
+            max-width: 450px;
+        }
+
+
+        .search-box input {
+            width: 100%;
+
+            height: 50px;
+
+            padding:
+                0 18px 0 48px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 8px;
+
+            background: var(--bg-card);
+
+            color: var(--text);
+
+            font-size: 13px;
+
+            outline: none;
+
+            transition:
+                border-color var(--transition),
+                background var(--transition);
+        }
+
+
+        .search-box input:focus {
+            border-color:
+                rgba(24, 200, 255, 0.5);
+
+            background: var(--bg-card-hover);
+        }
+
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+
+        .search-icon {
+            position: absolute;
+
+            left: 17px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: var(--text-muted);
+
+            font-size: 17px;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           FILTER BUTTONS
+        ===================================================== */
+
+        .filter-buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-bottom: 40px;
+        }
+
+
+        .filter-btn {
+            padding:
+                9px 15px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 6px;
+
+            background: var(--bg-card);
+
+            color: var(--text-light);
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                all var(--transition);
+        }
+
+
+        .filter-btn:hover {
+            border-color:
+                rgba(24, 200, 255, 0.4);
+
+            color: var(--accent);
+        }
+
+
+        .filter-btn.active {
+            background: var(--accent);
+
+            color: #031018;
+
+            border-color: var(--accent);
+        }
+
+
+        /* =====================================================
+           NOTES GRID
+        ===================================================== */
+
+        .notes-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        /* =====================================================
+           NOTE CARD
+        ===================================================== */
+
+        .note-card {
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 290px;
+
+            padding: 25px;
+
+            background: var(--bg-card);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 12px;
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                background var(--transition);
+        }
+
+
+        .note-card:hover {
+            transform: translateY(-5px);
+
+            background: var(--bg-card-hover);
+
+            border-color:
+                rgba(24, 200, 255, 0.35);
+        }
+
+
+        .note-top {
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .note-icon {
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 9px;
+
+            background:
+                rgba(24, 200, 255, 0.07);
+
+            border:
+                1px solid
+                rgba(24, 200, 255, 0.14);
+
+            font-size: 20px;
+        }
+
+
+        .note-type {
+            padding:
+                5px 9px;
+
+            border-radius: 5px;
+
+            background:
+                rgba(24, 200, 255, 0.07);
+
+            color: var(--accent);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.7px;
+
+            text-transform: uppercase;
+        }
+
+
+        .note-card h3 {
+            font-size: 18px;
+
+            line-height: 1.35;
+
+            margin-bottom: 10px;
+        }
+
+
+        .note-card p {
+            color: var(--text-light);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+
+        .note-subject {
+            color: var(--text-muted);
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .note-actions {
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: auto;
+        }
+
+
+        .note-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 36px;
+
+            padding: 0 13px;
+
+            border-radius: 6px;
+
+            font-size: 10px;
+
+            font-weight: 650;
+
+            transition:
+                all var(--transition);
+        }
+
+
+        .note-btn.primary {
+            background: var(--accent);
+
+            color: #031018;
+        }
+
+
+        .note-btn.primary:hover {
+            background: #42d4ff;
+        }
+
+
+        .note-btn.secondary {
+            border:
+                1px solid
+                var(--border);
+
+            color: var(--text-light);
+        }
+
+
+        .note-btn.secondary:hover {
+            border-color: var(--accent);
+
+            color: var(--accent);
+        }
+
+
+        /* =====================================================
+           NO RESULTS
+        ===================================================== */
+
+        .no-results {
+            display: none;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 12px;
+
+            background: var(--bg-card);
+        }
+
+
+        .no-results-icon {
+            font-size: 35px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .no-results h3 {
+            margin-bottom: 7px;
+        }
+
+
+        .no-results p {
+            color: var(--text-muted);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .notes-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .notes-hero {
+                padding: 70px 0 55px;
+            }
+
+
+            .notes-toolbar {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .search-box {
+                max-width: 100%;
+            }
+
+        }
+
+
+        @media (max-width: 560px) {
+
+            .notes-hero h1 {
+                font-size: 40px;
+            }
+
+
+            .notes-content {
+                padding: 55px 0 70px;
+            }
+
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .filter-buttons {
+                gap: 6px;
+            }
+
+
+            .filter-btn {
+                font-size: 10px;
+
+                padding:
+                    8px 11px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo">
+                <span class="logo-mark">&lt;/&gt;</span>
+                Ganesh<span>Bhatta</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+
+                <a href="index.html">Home</a>
+
+                <a href="about.html" >
+                    About
+                </a>
+
+                <a href="notes.html" class="active">
+                    Notes
+                </a>
+
+                <a href="videos.html">
+                    Videos
+                </a>
+
+                <a href="projects.html">
+                    Projects
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="notes-page">
+
+
+    <!-- =================================================
+         NOTES HERO
+    ================================================== -->
+
+    <section class="notes-hero">
+
+        <div class="container">
+
+            <div class="notes-hero-content">
+
+                <span class="notes-label">
+                    STUDY RESOURCES
+                </span>
+
+
+                <h1>
+                    Computer Engineering
+                    <span>Notes.</span>
+                </h1>
+
+
+                <p>
+                    Explore subject-wise study notes, tutorials and
+                    practical learning materials for computer
+                    engineering students. Search and filter resources
+                    to quickly find what you need.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         NOTES CONTENT
+    ================================================== -->
+
+    <section class="notes-content">
+
+        <div class="container">
+
+
+            <!-- Search -->
+
+            <div class="notes-toolbar">
+
+                <div>
+
+                    <span class="section-label">
+                        RESOURCE LIBRARY
+                    </span>
+
+                </div>
+
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search notes, subjects or topics..."
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Filters -->
+
+            <div class="filter-buttons">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all">
+
+                    All
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="dbms">
+
+                    DBMS
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="c-programming">
+
+                    C Programming
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="web-development">
+
+                    Web Development
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="computer-network">
+
+                    Computer Network
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="digital-system">
+
+                    Digital System
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="computer-engineering">
+
+                    Computer Engineering
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NOTES GRID
+            ================================================== -->
+
+            <div class="notes-grid" id="notesGrid">
+
+
+                <!-- =================================================
+                     DBMS
+                ================================================== -->
+
+                <article
+                    class="note-card"
+                    data-category="dbms"
+                    data-title="Introduction to Database Management System DBMS">
+
+                    <div class="note-top">
+
+                        <div class="note-icon">
+                            🗄️
+                        </div>
+
+                        <span class="note-type">
+                            PDF
+                        </span>
+
+                    </div>
+
+
+                    <span class="note-subject">
+                        Database Management System
+                    </span>
+
+
+                    <h3>
+                        Introduction to DBMS
+                    </h3>
+
+
+                    <p>
+                        Learn the basic concepts of databases,
+                        DBMS, database users, advantages and
+                        database management systems.
+                    </p>
+
+
+                    <div class="note-actions">
+
+                        <a
+                            href="notes/dbms/introduction.pdf"
+                            target="_blank"
+                            class="note-btn primary">
+
+                            View PDF
+
+                        </a>
+
+                        <a
+                            href="notes/dbms/introduction.pdf"
+                            download
+                            class="note-btn secondary">
+
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     DBMS NORMALIZATION
+                ================================================== -->
+
+                <article
+                    class="note-card"
+                    data-category="dbms"
+                    data-title="Database Normalization 1NF 2NF 3NF">
+
+                    <div class="note-top">
+
+                        <div class="note-icon">
+                            🗃️
+                        </div>
+
+                        <span class="note-type">
+                            PDF
+                        </span>
+
+                    </div>
+
+
+                    <span class="note-subject">
+                        Database Management System
+                    </span>
+
+
+                    <h3>
+                        Database Normalization
+                    </h3>
+
+
+                    <p>
+                        Understand 1NF, 2NF, 3NF and the
+                        importance of normalization in
+                        relational database design.
+                    </p>
+
+
+                    <div class="note-actions">
+
+                        <a
+                            href="notes/dbms/normalization.pdf"
+                            target="_blank"
+                            class="note-btn primary">
+
+                            View PDF
+
+                        </a>
+
+                        <a
+                            href="notes/dbms/normalization.pdf"
+                            download
+                            class="note-btn secondary">
+
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     C PROGRAMMING
+                ================================================== -->
+
+                <article
+                    class="note-card"
+                    data-category="c-programming"
+                    data-title="C Programming Basics Introduction">
+
+                    <div class="note-top">
+
+                        <div class="note-icon">
+                            C
+                        </div>
+
+                        <span class="note-type">
+                            PDF
+                        </span>
+
+                    </div>
+
+
+                    <span class="note-subject">
+                        C Programming
+                    </span>
+
+
+                    <h3>
+                        C Programming Basics
+                    </h3>
+
+
+                    <p>
+                        Introduction to C programming,
+                        variables, data types, operators,
+                        input and output.
+                    </p>
+
+
+                    <div class="note-actions">
+
+                        <a
+                            href="notes/c-programming/basics.pdf"
+                            target="_blank"
+                            class="note-btn primary">
+
+                            View PDF
+
+                        </a>
+
+                        <a
+                            href="notes/c-programming/basics.pdf"
+                            download
+                            class="note-btn secondary">
+
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     WEB DEVELOPMENT
+                ================================================== -->
+
+                <article
+                    class="note-card"
+                    data-category="web-development"
+                    data-title="HTML CSS Web Development">
+
+                    <div class="note-top">
+
+                        <div class="note-icon">
+                            🌐
+                        </div>
+
+                        <span class="note-type">
+                            PDF
+                        </span>
+
+                    </div>
+
+
+                    <span class="note-subject">
+                        Web Development
+                    </span>
+
+
+                    <h3>
+                        HTML & CSS
+                    </h3>
+
+
+                    <p>
+                        Learn the fundamentals of HTML and CSS
+                        for creating and designing modern
+                        web pages.
+                    </p>
+
+
+                    <div class="note-actions">
+
+                        <a
+                            href="notes/web-development/html-css.pdf"
+                            target="_blank"
+                            class="note-btn primary">
+
+                            View PDF
+
+                        </a>
+
+                        <a
+                            href="notes/web-development/html-css.pdf"
+                            download
+                            class="note-btn secondary">
+
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     COMPUTER NETWORK
+                ================================================== -->
+
+                <article
+                    class="note-card"
+                    data-category="computer-network"
+                    data-title="OSI Model Computer Network">
+
+                    <div class="note-top">
+
+                        <div class="note-icon">
+                            🌐
+                        </div>
+
+                        <span class="note-type">
+                            PDF
+                        </span>
+
+                    </div>
+
+
+                    <span class="note-subject">
+                        Computer Network
+                    </span>
+
+
+                    <h3>
+                        OSI Model
+                    </h3>
+
+
+                    <p>
+                        Detailed explanation of the seven
+                        layers of the OSI model and their
+                        functions in computer networking.
+                    </p>
+
+
+                    <div class="note-actions">
+
+                        <a
+                            href="notes/computer-network/osi.pdf"
+                            target="_blank"
+                            class="note-btn primary">
+
+                            View PDF
+
+                        </a>
+
+                        <a
+                            href="notes/computer-network/osi.pdf"
+                            download
+                            class="note-btn secondary">
+
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     DIGITAL SYSTEM
+                ================================================== -->
+
+                <article
+                    class="note-card"
+                    data-category="digital-system"
+                    data-title="Digital System Flip Flops">
+
+                    <div class="note-top">
+
+                        <div class="note-icon">
+                            ⚡
+                        </div>
+
+                        <span class="note-type">
+                            PDF
+                        </span>
+
+                    </div>
+
+
+                    <span class="note-subject">
+                        Digital System
+                    </span>
+
+
+                    <h3>
+                        Flip-Flops
+                    </h3>
+
+
+                    <p>
+                        Study SR, JK, D and T flip-flops,
+                        truth tables, working principles
+                        and applications.
+                    </p>
+
+
+                    <div class="note-actions">
+
+                        <a
+                            href="notes/digital-system/flip-flops.pdf"
+                            target="_blank"
+                            class="note-btn primary">
+
+                            View PDF
+
+                        </a>
+
+                        <a
+                            href="notes/digital-system/flip-flops.pdf"
+                            download
+                            class="note-btn secondary">
+
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     COMPUTER ENGINEERING
+                ================================================== -->
+
+                <article
+                    class="note-card"
+                    data-category="computer-engineering"
+                    data-title="Computer Engineering Fundamentals">
+
+                    <div class="note-top">
+
+                        <div class="note-icon">
+                            💻
+                        </div>
+
+                        <span class="note-type">
+                            PDF
+                        </span>
+
+                    </div>
+
+
+                    <span class="note-subject">
+                        Computer Engineering
+                    </span>
+
+
+                    <h3>
+                        Computer Engineering Fundamentals
+                    </h3>
+
+
+                    <p>
+                        Basic concepts of computer engineering,
+                        hardware, software, digital systems
+                        and computer architecture.
+                    </p>
+
+
+                    <div class="note-actions">
+
+                        <a
+                            href="notes/computer-engineering/fundamentals.pdf"
+                            target="_blank"
+                            class="note-btn primary">
+
+                            View PDF
+
+                        </a>
+
+                        <a
+                            href="notes/computer-engineering/fundamentals.pdf"
+                            download
+                            class="note-btn secondary">
+
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     WORD DOCUMENT EXAMPLE
+                ================================================== -->
+
+                <article
+                    class="note-card"
+                    data-category="dbms"
+                    data-title="DBMS Question Collection Word Document">
+
+                    <div class="note-top">
+
+                        <div class="note-icon">
+                            📄
+                        </div>
+
+                        <span class="note-type">
+                            DOCX
+                        </span>
+
+                    </div>
+
+
+                    <span class="note-subject">
+                        Database Management System
+                    </span>
+
+
+                    <h3>
+                        DBMS Question Collection
+                    </h3>
+
+
+                    <p>
+                        Important DBMS questions and practice
+                        materials prepared for students.
+                    </p>
+
+
+                    <div class="note-actions">
+
+                        <a
+                            href="notes/dbms/questions.docx"
+                            class="note-btn primary">
+
+                            Open File
+
+                        </a>
+
+                        <a
+                            href="notes/dbms/questions.docx"
+                            download
+                            class="note-btn secondary">
+
+                            Download
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NO RESULTS
+            ================================================== -->
+
+            <div class="no-results" id="noResults">
+
+                <div class="no-results-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    No resources found
+                </h3>
+
+                <p>
+                    Try another search term or select a
+                    different subject.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-container">
+
+
+        <!-- Brand -->
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+
+                <span class="logo-mark">
+                    &lt;/&gt;
+                </span>
+
+                <span class="logo-text">
+                    Ganesh<span>Bhatta</span>
+                </span>
+
+            </a>
+
+
+            <p>
+                Computer Engineering educator sharing
+                knowledge, resources and practical learning.
+            </p>
+
+        </div>
+
+
+        <!-- Quick Links -->
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="notes.html">
+                Notes
+            </a>
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+        </div>
+
+
+        <!-- Resources -->
+
+        <div class="footer-column">
+
+            <h3>
+                Resources
+            </h3>
+
+            <a href="projects.html">
+                Projects
+            </a>
+
+            <a href="notes.html">
+                Study Notes
+            </a>
+
+            <a href="videos.html">
+                Video Lessons
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <!-- Connect -->
+
+        <div class="footer-column">
+
+            <h3>
+                Connect
+            </h3>
+
+            <a href="#" target="_blank">
+                Facebook
+            </a>
+
+            <a href="#" target="_blank">
+                YouTube
+            </a>
+
+            <a href="#" target="_blank">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Bottom -->
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+                © 2026 Ganesh Bhatta. All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="js/script.js"></script>
+
+
+<script>
+
+    /* =====================================================
+       NOTES SEARCH + FILTER
+    ===================================================== */
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+    const noteCards =
+        document.querySelectorAll(".note-card");
+
+    const noResults =
+        document.getElementById("noResults");
+
+
+    let currentFilter = "all";
+
+
+    function filterNotes() {
+
+        const searchText =
+            searchInput.value
+                .toLowerCase()
+                .trim();
+
+
+        let visibleCount = 0;
+
+
+        noteCards.forEach(card => {
+
+            const category =
+                card.dataset.category
+                    .toLowerCase();
+
+
+            const title =
+                card.dataset.title
+                    .toLowerCase();
+
+
+            const cardText =
+                card.innerText
+                    .toLowerCase();
+
+
+            const matchesFilter =
+                currentFilter === "all" ||
+                category === currentFilter;
+
+
+            const matchesSearch =
+                title.includes(searchText) ||
+                cardText.includes(searchText);
+
+
+            if (
+                matchesFilter &&
+                matchesSearch
+            ) {
+
+                card.style.display = "flex";
+
+                visibleCount++;
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+
+        if (visibleCount === 0) {
+
+            noResults.style.display = "block";
+
+        } else {
+
+            noResults.style.display = "none";
+
+        }
+
+    }
+
+
+    /* Search */
+
+    searchInput.addEventListener(
+        "input",
+        filterNotes
+    );
+
+
+    /* Filters */
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                filterButtons.forEach(btn => {
+
+                    btn.classList.remove("active");
+
+                });
+
+
+                button.classList.add("active");
+
+
+                currentFilter =
+                    button.dataset.filter;
+
+
+                filterNotes();
+
+            }
+        );
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

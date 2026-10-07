@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Me | Ganesh Bhatta</title>
+
+    <meta name="description"
+          content="Learn more about Ganesh Bhatta, a Computer Engineering educator focused on practical and understandable computer education.">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =========================================
+           ABOUT PAGE
+        ========================================= */
+
+        .about-hero {
+            padding: 90px 0 70px;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(24, 200, 255, 0.08), transparent 30%),
+                var(--bg-main);
+        }
+
+        .about-hero-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .about-image-area {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image-wrapper {
+            width: 360px;
+            height: 440px;
+            padding: 8px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            border-radius: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-wrapper::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: rgba(24, 200, 255, 0.12);
+            filter: blur(50px);
+            top: -50px;
+            right: -40px;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image-label {
+            position: absolute;
+            bottom: 25px;
+            left: -25px;
+            background: rgba(17, 26, 38, 0.95);
+            border: 1px solid var(--border-light);
+            padding: 14px 18px;
+            border-radius: 10px;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image-label strong {
+            display: block;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .about-image-label span {
+            display: block;
+            color: var(--accent);
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        .about-label {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.08;
+            margin-bottom: 22px;
+            color: var(--text);
+        }
+
+        .about-hero h1 span {
+            color: var(--accent);
+        }
+
+        .about-intro {
+            color: var(--text-light);
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin-bottom: 28px;
+        }
+
+        .about-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================
+           INTRODUCTION
+        ========================================= */
+
+        .about-section {
+            padding: 85px 0;
+            background: var(--bg-section);
+        }
+
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 22px;
+            color: var(--text);
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .about-highlight {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .about-highlight h3 {
+            font-size: 18px;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+
+        .highlight-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .highlight-item:last-child {
+            border-bottom: none;
+        }
+
+        .highlight-icon {
+            color: var(--accent);
+            font-size: 18px;
+            min-width: 22px;
+        }
+
+        .highlight-item span {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           TEACHING FOCUS
+        ========================================= */
+
+        .focus-section {
+            padding: 85px 0;
+            background: var(--bg-main);
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .section-heading p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .focus-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            transition: 0.3s ease;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-dark);
+            background: var(--bg-card-hover);
+        }
+
+        .focus-number {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .focus-card h3 {
+            color: var(--text);
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .focus-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           SKILLS
+        ========================================= */
+
+        .skills-section {
+            padding: 85px 0;
+            background: var(--bg-section);
+        }
+
+        .skills-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .skills-intro h2 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .skills-intro p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .skill-item {
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-card);
+            color: var(--text-light);
+            transition: 0.3s ease;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent-dark);
+            color: var(--text);
+        }
+
+        .skill-item strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .skill-item span {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* =========================================
+           TEACHING PHILOSOPHY
+        ========================================= */
+
+        .philosophy-section {
+            padding: 85px 0;
+            background: var(--bg-main);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .philosophy-card {
+            padding: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        .philosophy-card .icon {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .philosophy-card h3 {
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .philosophy-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =========================================
+           JOURNEY
+        ========================================= */
+
+        .journey-section {
+            padding: 85px 0;
+            background: var(--bg-section);
+        }
+
+        .journey {
+            max-width: 850px;
+            margin: 45px auto 0;
+            position: relative;
+        }
+
+        .journey::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--border-light);
+        }
+
+        .journey-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 38px;
+        }
+
+        .journey-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .journey-dot {
+            position: absolute;
+            left: 9px;
+            top: 4px;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            background: var(--bg-section);
+            border: 2px solid var(--accent);
+        }
+
+        .journey-item h3 {
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 19px;
+        }
+
+        .journey-item p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .about-cta {
+            padding: 85px 0;
+            background: var(--bg-main);
+            text-align: center;
+        }
+
+        .about-cta-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 55px 35px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background:
+                radial-gradient(circle at center, rgba(24, 200, 255, 0.07), transparent 55%),
+                var(--bg-card);
+        }
+
+        .about-cta h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .about-cta p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 28px;
+            line-height: 1.7;
+        }
+
+        .about-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .about-hero-grid,
+            .about-content-grid,
+            .skills-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image-area {
+                order: 2;
+            }
+
+            .about-hero-content {
+                order: 1;
+            }
+
+            .about-image-wrapper {
+                width: 320px;
+                height: 400px;
+            }
+
+            .focus-grid,
+            .philosophy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-layout {
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .about-hero,
+            .about-section,
+            .focus-section,
+            .skills-section,
+            .philosophy-section,
+            .journey-section,
+            .about-cta {
+                padding: 65px 0;
+            }
+
+            .about-hero-grid {
+                gap: 45px;
+            }
+
+            .about-hero h1 {
+                font-size: 38px;
+            }
+
+            .about-intro {
+                font-size: 15px;
+            }
+
+            .about-image-wrapper {
+                width: 280px;
+                height: 350px;
+            }
+
+            .about-image-label {
+                left: 0;
+            }
+
+            .about-content h2,
+            .section-heading h2,
+            .skills-intro h2,
+            .about-cta h2 {
+                font-size: 29px;
+            }
+
+            .focus-grid,
+            .philosophy-grid,
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-item {
+                padding-left: 50px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo">
+                <span class="logo-mark">&lt;/&gt;</span>
+                Ganesh<span>Bhatta</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+
+                <a href="index.html">Home</a>
+
+                <a href="about.html" class="active">
+                    About
+                </a>
+
+                <a href="notes.html">
+                    Notes
+                </a>
+
+                <a href="videos.html">
+                    Videos
+                </a>
+
+                <a href="projects.html">
+                    Projects
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         ABOUT HERO
+    ========================================= -->
+
+    <section class="about-hero">
+
+        <div class="container about-hero-grid">
+
+            <div class="about-image-area">
+
+                <div class="about-image-wrapper">
+
+                    <img
+                        src="images/Profile.JPEG"
+                        alt="Ganesh Bhatta - Computer Engineering Educator"
+                    >
+
+                    <div class="about-image-label">
+
+                        <strong>Computer Engineering</strong>
+
+                        <span>Educator & Learner</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-hero-content">
+
+                <span class="about-label">
+                    ABOUT ME
+                </span>
+
+                <h1>
+                    Teaching Computer
+                    <span>Engineering</span>
+                    Through Practice.
+                </h1>
+
+                <p class="about-intro">
+                    I am a computer educator interested in making
+                    Computer Engineering concepts easier to understand,
+                    practical to learn, and useful in real-world situations.
+                </p>
+
+                <p class="about-intro">
+                    Through notes, video lessons, programming examples,
+                    database projects, web development and practical
+                    activities, my goal is to help students learn
+                    technology with confidence.
+                </p>
+
+                <div class="about-buttons">
+
+                    <a href="notes.html" class="btn btn-primary">
+                        Explore Notes
+                    </a>
+
+                    <a href="videos.html" class="btn btn-secondary">
+                        Watch Videos
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         INTRODUCTION
+    ========================================= -->
+
+    <section class="about-section">
+
+        <div class="container about-content-grid">
+
+            <div class="about-content">
+
+                <div class="section-label">
+                    MY APPROACH
+                </div>
+
+                <h2>
+                    Making Computer Education
+                    Simple and Practical
+                </h2>
+
+                <p>
+                    Computer Engineering contains many concepts that can
+                    initially seem difficult. Programming, databases,
+                    networking, digital systems and web technologies
+                    become much easier when they are explained step by
+                    step and connected with practical examples.
+                </p>
+
+                <p>
+                    My approach is to break complex topics into smaller
+                    concepts, explain the theory clearly, and then connect
+                    it with practical implementation.
+                </p>
+
+                <p>
+                    This website is being developed as a learning platform
+                    where students can access study notes, video lessons,
+                    practical projects and other useful computer engineering
+                    resources in one place.
+                </p>
+
+            </div>
+
+
+            <div class="about-highlight">
+
+                <h3>
+                    What You Can Find Here
+                </h3>
+
+                <div class="highlight-item">
+
+                    <div class="highlight-icon">01</div>
+
+                    <span>
+                        Computer Engineering study notes and resources
+                    </span>
+
+                </div>
+
+                <div class="highlight-item">
+
+                    <div class="highlight-icon">02</div>
+
+                    <span>
+                        Programming examples and practical exercises
+                    </span>
+
+                </div>
+
+                <div class="highlight-item">
+
+                    <div class="highlight-icon">03</div>
+
+                    <span>
+                        Database and SQL learning materials
+                    </span>
+
+                </div>
+
+                <div class="highlight-item">
+
+                    <div class="highlight-icon">04</div>
+
+                    <span>
+                        Web development tutorials and projects
+                    </span>
+
+                </div>
+
+                <div class="highlight-item">
+
+                    <div class="highlight-icon">05</div>
+
+                    <span>
+                        Computer networking and digital system resources
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TEACHING FOCUS
+    ========================================= -->
+
+    <section class="focus-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    TEACHING FOCUS
+                </div>
+
+                <h2>
+                    Areas I Focus On
+                </h2>
+
+                <p>
+                    My learning resources focus on important areas of
+                    Computer Engineering and practical computing.
+                </p>
+
+            </div>
+
+
+            <div class="focus-grid">
+
+                <div class="focus-card">
+
+                    <div class="focus-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Programming
+                    </h3>
+
+                    <p>
+                        Learning programming concepts through simple
+                        explanations, examples, algorithms and practical
+                        coding exercises.
+                    </p>
+
+                </div>
+
+
+                <div class="focus-card">
+
+                    <div class="focus-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Database Management
+                    </h3>
+
+                    <p>
+                        Understanding databases, SQL, relationships,
+                        normalization, ER diagrams and database design.
+                    </p>
+
+                </div>
+
+
+                <div class="focus-card">
+
+                    <div class="focus-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        Exploring HTML, CSS, JavaScript and practical
+                        techniques for building modern websites.
+                    </p>
+
+                </div>
+
+
+                <div class="focus-card">
+
+                    <div class="focus-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Computer Networks
+                    </h3>
+
+                    <p>
+                        Studying networking fundamentals, OSI model,
+                        protocols, addressing and network technologies.
+                    </p>
+
+                </div>
+
+
+                <div class="focus-card">
+
+                    <div class="focus-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Digital Systems
+                    </h3>
+
+                    <p>
+                        Understanding digital logic, combinational and
+                        sequential circuits, flip-flops and related concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="focus-card">
+
+                    <div class="focus-number">
+                        06
+                    </div>
+
+                    <h3>
+                        Computer Engineering
+                    </h3>
+
+                    <p>
+                        Connecting different areas of computing to develop
+                        strong fundamentals and practical technical skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TECHNICAL EXPERTISE
+    ========================================= -->
+
+    <section class="skills-section">
+
+        <div class="container skills-layout">
+
+            <div class="skills-intro">
+
+                <div class="section-label">
+                    TECHNICAL EXPERTISE
+                </div>
+
+                <h2>
+                    Technology,
+                    Learning & Practice
+                </h2>
+
+                <p>
+                    I believe that technology is best learned by combining
+                    conceptual understanding with regular hands-on practice.
+                    These are some of the areas covered through my teaching
+                    and learning resources.
+                </p>
+
+            </div>
+
+
+            <div class="skills-list">
+
+                <div class="skill-item">
+
+                    <strong>C Programming</strong>
+
+                    <span>
+                        Fundamentals & Problem Solving
+                    </span>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <strong>SQL & DBMS</strong>
+
+                    <span>
+                        Database Design & Queries
+                    </span>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <strong>HTML & CSS</strong>
+
+                    <span>
+                        Website Structure & Design
+                    </span>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <strong>JavaScript</strong>
+
+                    <span>
+                        Web Interactivity
+                    </span>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <strong>Computer Networks</strong>
+
+                    <span>
+                        Networking Fundamentals
+                    </span>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <strong>Digital Systems</strong>
+
+                    <span>
+                        Digital Logic & Circuits
+                    </span>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <strong>MS Access</strong>
+
+                    <span>
+                        Forms, Tables & Databases
+                    </span>
+
+                </div>
+
+
+                <div class="skill-item">
+
+                    <strong>Computer Fundamentals</strong>
+
+                    <span>
+                        Core Computing Concepts
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TEACHING PHILOSOPHY
+    ========================================= -->
+
+    <section class="philosophy-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    TEACHING PHILOSOPHY
+                </div>
+
+                <h2>
+                    How I Believe Students Learn Best
+                </h2>
+
+                <p>
+                    Good technical education is not only about remembering
+                    concepts. It is about understanding, practising and
+                    applying them.
+                </p>
+
+            </div>
+
+
+            <div class="philosophy-grid">
+
+                <div class="philosophy-card">
+
+                    <div class="icon">
+                        ✓
+                    </div>
+
+                    <h3>
+                        Understand First
+                    </h3>
+
+                    <p>
+                        Concepts should be explained clearly before students
+                        are expected to memorize or implement them.
+                    </p>
+
+                </div>
+
+
+                <div class="philosophy-card">
+
+                    <div class="icon">
+                        &lt;/&gt;
+                    </div>
+
+                    <h3>
+                        Practice More
+                    </h3>
+
+                    <p>
+                        Programming and technical skills improve through
+                        regular practice and solving real problems.
+                    </p>
+
+                </div>
+
+
+                <div class="philosophy-card">
+
+                    <div class="icon">
+                        ↗
+                    </div>
+
+                    <h3>
+                        Apply Knowledge
+                    </h3>
+
+                    <p>
+                        Students should be encouraged to use what they learn
+                        to build projects and solve practical problems.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PROFESSIONAL JOURNEY
+    ========================================= -->
+
+    <section class="journey-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    MY JOURNEY
+                </div>
+
+                <h2>
+                    Learning, Teaching & Growing
+                </h2>
+
+                <p>
+                    My professional journey continues to focus on improving
+                    computer education and helping students develop practical
+                    technical skills.
+                </p>
+
+            </div>
+
+
+            <div class="journey">
+
+                <div class="journey-item">
+
+                    <div class="journey-dot"></div>
+
+                    <h3>
+                        Computer Engineering Education
+                    </h3>
+
+                    <p>
+                        Building strong knowledge in computer engineering
+                        concepts and developing the ability to explain
+                        technical subjects clearly.
+                    </p>
+
+                </div>
+
+
+                <div class="journey-item">
+
+                    <div class="journey-dot"></div>
+
+                    <h3>
+                        Teaching & Practical Learning
+                    </h3>
+
+                    <p>
+                        Focusing on student-centered teaching, practical
+                        examples, programming exercises and technology-based
+                        learning.
+                    </p>
+
+                </div>
+
+
+                <div class="journey-item">
+
+                    <div class="journey-dot"></div>
+
+                    <h3>
+                        Creating Digital Learning Resources
+                    </h3>
+
+                    <p>
+                        Developing notes, tutorials, videos and practical
+                        resources to make computer education more accessible.
+                    </p>
+
+                </div>
+
+
+                <div class="journey-item">
+
+                    <div class="journey-dot"></div>
+
+                    <h3>
+                        Continuous Improvement
+                    </h3>
+
+                    <p>
+                        Continuously learning new technologies and improving
+                        teaching methods to provide better computer education.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="about-cta">
+
+        <div class="container">
+
+            <div class="about-cta-box">
+
+                <h2>
+                    Let's Learn Computer Engineering
+                </h2>
+
+                <p>
+                    Explore the available notes, watch practical video
+                    lessons and continue building your technical knowledge
+                    step by step.
+                </p>
+
+                <div class="about-cta-buttons">
+
+                    <a href="notes.html" class="btn btn-primary">
+                        Explore Notes
+                    </a>
+
+                    <a href="videos.html" class="btn btn-secondary">
+                        Watch Videos
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-mark">&lt;/&gt;</span>
+                    Ganesh<span>Bhatta</span>
+                </a>
+
+                <p>
+                    Computer Engineering education,
+                    practical learning and digital resources.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="notes.html">Notes</a>
+                <a href="videos.html">Videos</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Resources
+                </h4>
+
+                <a href="projects.html">Projects</a>
+                <a href="notes.html">Study Notes</a>
+                <a href="videos.html">Video Lessons</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Connect
+                </h4>
+
+                <a href="contact.html">Contact Me</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <p>
+                © 2026 Ganesh Bhatta. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

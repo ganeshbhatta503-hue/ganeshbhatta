@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | Ganesh Bhatta</title>
+
+    <meta
+        name="description"
+        content="Contact Ganesh Bhatta for computer engineering education, academic discussion, projects and collaboration."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =====================================================
+           CONTACT PAGE
+        ===================================================== */
+
+        .contact-page {
+            padding: 90px 0;
+        }
+
+        /* Main contact layout */
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+
+        /* =====================================================
+           LEFT SIDE
+        ===================================================== */
+
+        .contact-left {
+            padding-top: 10px;
+        }
+
+        .contact-left h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .contact-left > p {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+
+        /* Contact information */
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: 0.3s ease;
+        }
+
+        .contact-detail:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .contact-detail-icon {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background: rgba(24, 200, 255, 0.08);
+            border: 1px solid rgba(24, 200, 255, 0.15);
+
+            color: var(--accent);
+
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .contact-detail-content h4 {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .contact-detail-content p,
+        .contact-detail-content a {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        .contact-detail-content a:hover {
+            color: var(--accent);
+        }
+
+
+        /* =====================================================
+           SOCIAL MEDIA
+        ===================================================== */
+
+        .social-section {
+            margin-top: 38px;
+        }
+
+        .social-section h3 {
+            font-size: 17px;
+            margin-bottom: 16px;
+        }
+
+        .social-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 10px 15px;
+
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 7px;
+
+            color: var(--text-light);
+
+            font-size: 13px;
+
+            transition: 0.3s ease;
+        }
+
+        .social-card:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .social-icon {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           RIGHT SIDE FORM
+        ===================================================== */
+
+        .contact-form-box {
+            padding: 38px;
+
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.20);
+        }
+
+        .contact-form-header {
+            margin-bottom: 28px;
+        }
+
+        .contact-form-header h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .contact-form-header p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* Form */
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .form-field label {
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .form-field label span {
+            color: var(--accent);
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+
+            width: 100%;
+
+            padding: 13px 14px;
+
+            background: var(--bg-dark);
+
+            border: 1px solid var(--border);
+
+            border-radius: 7px;
+
+            color: var(--text);
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.3s ease;
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+
+            border-color: var(--accent);
+
+            box-shadow:
+                0 0 0 3px rgba(24, 200, 255, 0.07);
+        }
+
+        .form-field textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-field select {
+            cursor: pointer;
+        }
+
+
+        /* Submit */
+
+        .send-btn {
+            width: 100%;
+            min-height: 50px;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            margin-top: 5px;
+        }
+
+        .form-security {
+            text-align: center;
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+
+            margin-top: -5px;
+        }
+
+
+        /* =====================================================
+           RESPONSE MESSAGE
+        ===================================================== */
+
+        .form-message {
+            display: none;
+
+            padding: 12px 15px;
+
+            border-radius: 7px;
+
+            background: rgba(24, 200, 255, 0.07);
+
+            border: 1px solid rgba(24, 200, 255, 0.2);
+
+            color: var(--accent);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        .form-message.show {
+            display: block;
+        }
+
+
+        /* =====================================================
+           BOTTOM CTA
+        ===================================================== */
+
+        .contact-bottom {
+            margin-top: 80px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .contact-left {
+                padding-top: 0;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .contact-page {
+                padding: 60px 0;
+            }
+
+            .contact-left h2 {
+                font-size: 30px;
+            }
+
+            .contact-form-box {
+                padding: 25px 20px;
+            }
+
+            .contact-form-header h2 {
+                font-size: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .social-grid {
+                gap: 8px;
+            }
+
+            .social-card {
+                padding: 9px 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                &lt;/&gt;
+            </span>
+
+            Ganesh<span>Bhatta</span>
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open navigation menu"
+        >
+            ☰
+        </button>
+
+
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="notes.html">
+                Notes
+            </a>
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+            <a href="projects.html">
+                Projects
+            </a>
+
+            <a
+                href="contact.html"
+                class="active"
+            >
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PAGE HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <span class="section-label">
+            CONTACT
+        </span>
+
+        <h1>
+            Let's Connect
+        </h1>
+
+        <p>
+            Have a question, academic discussion, project idea,
+            or collaboration opportunity? I'd be happy to hear
+            from you.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT SECTION
+===================================================== -->
+
+<section class="contact-page">
+
+    <div class="container">
+
+        <div class="contact-wrapper">
+
+
+            <!-- =================================================
+                 LEFT — CONTACT INFORMATION
+            ================================================== -->
+
+            <div class="contact-left">
+
+                <span class="section-label">
+                    GET IN TOUCH
+                </span>
+
+                <h2>
+                    Let's Start a Conversation
+                </h2>
+
+                <p>
+                    Whether you are a student, teacher, developer,
+                    academic professional, or someone interested
+                    in computer engineering education, you can
+                    contact me for questions, ideas and
+                    collaboration.
+                </p>
+
+
+                <!-- CONTACT DETAILS -->
+
+                <div class="contact-details">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            @
+                        </div>
+
+                        <div class="contact-detail-content">
+
+                            <h4>
+                                Email
+                            </h4>
+
+                            <a
+                                href="mailto:YOUR-EMAIL@example.com"
+                            >
+                                YOUR-EMAIL@example.com
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            ●
+                        </div>
+
+                        <div class="contact-detail-content">
+
+                            <h4>
+                                Location
+                            </h4>
+
+                            <p>
+                                Nepal
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROFESSION -->
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <div class="contact-detail-content">
+
+                            <h4>
+                                Professional Focus
+                            </h4>
+
+                            <p>
+                                Computer Engineering & Education
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SOCIAL MEDIA
+                ================================================== -->
+
+                <div class="social-section">
+
+                    <h3>
+                        Follow & Connect
+                    </h3>
+
+
+                    <div class="social-grid">
+
+
+                        <!-- FACEBOOK -->
+
+                        <a
+                            href="https://www.facebook.com/YOUR_USERNAME"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-card"
+                        >
+
+                            <span class="social-icon">
+                                f
+                            </span>
+
+                            Facebook
+
+                        </a>
+
+
+                        <!-- YOUTUBE -->
+
+                        <a
+                            href="https://www.youtube.com/@YOUR_CHANNEL"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-card"
+                        >
+
+                            <span class="social-icon">
+                                ▶
+                            </span>
+
+                            YouTube
+
+                        </a>
+
+
+                        <!-- TIKTOK -->
+
+                        <a
+                            href="https://www.tiktok.com/@YOUR_USERNAME"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-card"
+                        >
+
+                            <span class="social-icon">
+                                ♪
+                            </span>
+
+                            TikTok
+
+                        </a>
+
+
+                        <!-- LINKEDIN -->
+
+                        <a
+                            href="https://www.linkedin.com/in/YOUR_USERNAME/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-card"
+                        >
+
+                            <span class="social-icon">
+                                in
+                            </span>
+
+                            LinkedIn
+
+                        </a>
+
+
+                        <!-- GITHUB -->
+
+                        <a
+                            href="https://github.com/YOUR_USERNAME"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-card"
+                        >
+
+                            <span class="social-icon">
+                                &lt;/&gt;
+                            </span>
+
+                            GitHub
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT — CONTACT FORM
+            ================================================== -->
+
+            <div class="contact-form-box">
+
+
+                <div class="contact-form-header">
+
+                    <span class="section-label">
+                        SEND A MESSAGE
+                    </span>
+
+                    <h2>
+                        How Can I Help?
+                    </h2>
+
+                    <p>
+                        Fill in the form below with your details
+                        and message. Please provide enough
+                        information so I can understand your
+                        inquiry.
+                    </p>
+
+                </div>
+
+
+                <form
+                    class="contact-form"
+                    id="contactForm"
+                >
+
+
+                    <!-- NAME + EMAIL -->
+
+                    <div class="form-row">
+
+                        <div class="form-field">
+
+                            <label for="name">
+                                Your Name <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="email">
+                                Email Address <span>*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SUBJECT -->
+
+                    <div class="form-field">
+
+                        <label for="subject">
+                            Subject <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="e.g. Academic discussion, project collaboration..."
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- PURPOSE -->
+
+                    <div class="form-field">
+
+                        <label for="purpose">
+                            What is this about?
+                        </label>
+
+                        <select
+                            id="purpose"
+                            name="purpose"
+                        >
+
+                            <option value="">
+                                Select an option
+                            </option>
+
+                            <option value="academic">
+                                Academic / Study Question
+                            </option>
+
+                            <option value="teaching">
+                                Teaching & Education
+                            </option>
+
+                            <option value="project">
+                                Project Discussion
+                            </option>
+
+                            <option value="collaboration">
+                                Collaboration
+                            </option>
+
+                            <option value="website">
+                                Website / Technical
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-field">
+
+                        <label for="message">
+                            Your Message <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div
+                        class="form-message"
+                        id="formMessage"
+                    >
+                    </div>
+
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary send-btn"
+                    >
+                        Send Message
+                    </button>
+
+
+                    <p class="form-security">
+                        Please do not submit passwords or other
+                        sensitive information through this form.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DISCUSSION AREAS
+===================================================== -->
+
+<section class="section section-dark">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                AREAS OF INTEREST
+            </span>
+
+            <h2 class="section-title">
+                What We Can Discuss
+            </h2>
+
+            <p class="section-description">
+                My main areas of interest include computer
+                engineering education, programming, databases,
+                networking, web development and educational
+                technology.
+            </p>
+
+        </div>
+
+
+        <div class="grid grid-3">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>
+                    Computer Engineering
+                </h3>
+
+                <p>
+                    Programming, DBMS, computer networks,
+                    digital systems, web development and
+                    other computer engineering subjects.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Teaching & Learning
+                </h3>
+
+                <p>
+                    Practical teaching methods, educational
+                    resources, technology-supported learning
+                    and student-centered education.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Projects & Collaboration
+                </h3>
+
+                <p>
+                    Student projects, software development,
+                    educational websites and technical
+                    collaboration.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-content">
+
+            <span class="section-label">
+                EXPLORE
+            </span>
+
+            <h2>
+                Learn. Practice. Build.
+            </h2>
+
+            <p>
+                Explore computer engineering notes, educational
+                videos and practical projects.
+            </p>
+
+
+            <div class="btn-group">
+
+                <a
+                    href="notes.html"
+                    class="btn btn-primary"
+                >
+                    Explore Notes
+                </a>
+
+                <a
+                    href="projects.html"
+                    class="btn btn-outline"
+                >
+                    View Projects
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <span class="logo-mark">
+                        &lt;/&gt;
+                    </span>
+
+                    Ganesh<span>Bhatta</span>
+
+                </a>
+
+                <p>
+                    Computer Engineering educator sharing
+                    practical knowledge, educational resources,
+                    notes, videos and projects.
+                </p>
+
+
+                <div class="social-links">
+
+                    <a
+                        href="https://www.facebook.com/YOUR_USERNAME"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        f
+                    </a>
+
+                    <a
+                        href="https://www.youtube.com/@YOUR_CHANNEL"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        ▶
+                    </a>
+
+                    <a
+                        href="https://www.tiktok.com/@YOUR_USERNAME"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        ♪
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/YOUR_USERNAME/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        in
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="notes.html">
+                            Notes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="videos.html">
+                            Videos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="projects.html">
+                            Projects
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- RESOURCES -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Resources
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="notes.html">
+                            Study Notes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="videos.html">
+                            Educational Videos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="projects.html">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Ganesh Bhatta. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="js/script.js"></script>
+
+
+<script>
+
+    const contactForm =
+        document.getElementById("contactForm");
+
+    const formMessage =
+        document.getElementById("formMessage");
+
+
+    if (contactForm) {
+
+        contactForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                formMessage.textContent =
+                    "Your message form is ready. We will connect it to your email service so messages can be delivered directly to you.";
+
+                formMessage.classList.add("show");
+
+            }
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
